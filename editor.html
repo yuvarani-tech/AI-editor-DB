@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor - AI Voice Text Editor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dark-mode">
+    <div class="background-animation"></div>
+
+    <div class="app-container">
+        <!-- Main Sidebar -->
+        <aside class="main-sidebar">
+            <div class="logo">
+                <i class="ph ph-waves"></i>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="editor.html" class="nav-item active" title="Editor"><i class="ph ph-pencil-simple"></i></a>
+                <a href="history.html" class="nav-item" title="History"><i class="ph ph-clock-counter-clockwise"></i></a>
+                <a href="settings.html" class="nav-item" title="Settings"><i class="ph ph-gear"></i></a>
+                <a href="index.html" class="nav-item" title="Home"><i class="ph ph-house"></i></a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <div class="header-center">
+                    <input type="text" id="noteTitle" class="title-input" placeholder="Untitled Document">
+                </div>
+                <div class="header-right">
+                    <button class="action-btn outline small" id="dbSaveBtn" title="Save to Cloud">
+                        <i class="ph ph-cloud-check"></i>
+                        <span>Save Note</span>
+                    </button>
+                    <div class="status-indicator" id="statusIndicator">
+                        <span class="dot"></span>
+                        <span class="status-text">Ready</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="editor-container">
+                <textarea id="editor" placeholder="Start typing or click the microphone to speak..."></textarea>
+                <div class="editor-footer">
+                    <span id="wordCount">0 words</span>
+                    <span id="charCount">0 characters</span>
+                </div>
+            </div>
+
+            <div class="control-panel">
+                <div class="control-group">
+                    <button class="action-btn primary" id="micBtn" title="Start/Stop Voice Input">
+                        <i class="ph ph-microphone"></i>
+                        <span>Dictate</span>
+                    </button>
+                    <button class="action-btn" id="readBtn" title="Read Text Aloud">
+                        <i class="ph ph-speaker-high"></i>
+                        <span>Read</span>
+                    </button>
+                    <button class="action-btn" id="stopReadBtn" title="Stop Reading" style="display: none;">
+                        <i class="ph ph-speaker-x"></i>
+                        <span>Stop</span>
+                    </button>
+                </div>
+                
+                <div class="control-group center">
+                    <div class="color-picker-btn tooltip" title="Text Color">
+                        <label for="textColorPicker"><i class="ph ph-palette"></i></label>
+                        <input type="color" id="textColorPicker" value="#e2e8f0">
+                    </div>
+                    <button class="icon-btn tooltip" id="copyBtn" title="Copy to Clipboard">
+                        <i class="ph ph-copy"></i>
+                    </button>
+                    <button class="icon-btn tooltip" id="clearBtn" title="Clear Text">
+                        <i class="ph ph-trash"></i>
+                    </button>
+                </div>
+
+                <div class="control-group right">
+                    <button class="action-btn outline" id="saveTxtBtn" title="Save as TXT">
+                        <i class="ph ph-file-text"></i>
+                        <span>TXT</span>
+                    </button>
+                    <button class="action-btn outline" id="exportPdfBtn" title="Export as PDF">
+                        <i class="ph ph-file-pdf"></i>
+                        <span>PDF</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="toast" class="toast">Action completed successfully.</div>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
